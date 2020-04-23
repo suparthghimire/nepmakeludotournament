@@ -1,0 +1,204 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+a {
+  text-decoration: none;
+}
+*:focus {
+  outline: none;
+}
+body {
+  margin: 0;
+  background: #fff;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  min-height: 100vh;
+  /* height:10000px; */
+  font-family: "raleway", sans-serif;
+  overflow-x: hidden;
+}
+ul {
+  list-style: none;
+}
+/* nav bar css start*/
+header {
+  background: #2a2a2a;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  padding: 1em;
+  /* margin-top:-1.4em; */
+  height: auto;
+  z-index: 999;
+}
+header a .logo {
+  text-transform: uppercase;
+  color: white;
+}
+
+.navToggle {
+  display: none;
+}
+
+.navToggleLabel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 1em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transition: transform 250ms ease-in-out;
+}
+
+.navToggleLabel span,
+.navToggleLabel span::before,
+.navToggleLabel span::after {
+  display: block;
+  background-color: white;
+  height: 2px;
+  width: 2em;
+  border-radius: 2px;
+  position: relative;
+}
+.navToggleLabel {
+  cursor: pointer;
+}
+
+.navToggleLabel span::before,
+.navToggleLabel span::after {
+  content: "";
+  position: absolute;
+}
+.navToggleLabel span::before {
+  bottom: 7px;
+  opacity: 1;
+  transition: opacity 250ms ease-in-out;
+}
+
+.navToggleLabel span::after {
+  top: 7px;
+  transition: transform 250ms ease-in-out;
+}
+
+header nav {
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  left: 0;
+  background: #2a2a2a;
+  width: 100%;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 200ms ease-in-out;
+}
+header nav ul {
+  margin: 0;
+  padding: 0;
+}
+header nav ul li {
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 250ms ease-in-out;
+}
+header nav ul li a:hover {
+  color: #9c9c9c;
+}
+
+.navToggle:checked ~ nav {
+  transform: scale(1, 1);
+}
+
+.navToggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 150ms ease-in-out 150ms;
+}
+
+.navToggle:checked ~ .navToggleLabel {
+  transform: rotate(45deg);
+  /* background: black; */
+}
+.navToggle:checked ~ .navToggleLabel span::after {
+  transform: translateY(-7px) rotate(-90deg);
+}
+
+.navToggle:checked ~ .navToggleLabel span::before {
+  opacity: 0;
+}
+
+/* nav bar css end */
+.carousel-item {
+  height: 100vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@media screen and (min-width: 800px) {
+  /* nav bar */
+  .navToggleLabel {
+    display: none;
+  }
+  header {
+    margin-top: 0;
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+    position: fixed;
+    z-index: 999;
+  }
+
+  header .logo {
+    grid-column: 2 / span 1;
+  }
+
+  header nav {
+    all: unset;
+    grid-column: 3/4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  nav ul {
+    display: flex;
+  }
+  header nav ul li {
+    margin-left: 3em;
+    margin-bottom: 0;
+  }
+  header nav ul li a {
+    opacity: 1;
+    position: relative;
+    font-weight: 700;
+  }
+  header nav ul li a::before {
+    content: "";
+    display: block;
+    height: 3px;
+    border-radius: 10px;
+    background: #9c9c9c;
+    position: absolute;
+    top: -0.75em;
+    left: 0;
+    right: 0;
+    transform: scale(0, 1);
+    transition: transform 250ms ease-in-out;
+  }
+  header nav ul li a:hover::before {
+    transform: scale(1, 1);
+    transform-origin: left;
+  }
+
+  /* nav bar end */
+}

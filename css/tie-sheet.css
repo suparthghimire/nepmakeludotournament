@@ -178,7 +178,13 @@ a {
   background: white;
   border-radius: 50%;
   margin: 0 10px;
+  transition: 150ms ease-in-out;
 }
+.sponser-img:hover {
+  opacity: 0.8;
+  transform: translateY(-3px);
+}
+
 .sponser-img img {
   height: 100%;
   width: 100%;

@@ -146,6 +146,7 @@ a {
 .text-light {
   font-weight: 900;
   text-shadow: 0 0 6px var(--clr-sdw);
+  text-align: center;
 }
 
 .team-leader {

@@ -190,6 +190,10 @@ a {
   width: 100%;
   object-fit: cover;
 }
+.winner-div h2 {
+  font-size: 1.2rem;
+  text-align: center;
+}
 
 @media only screen and (max-width: 600px) {
   .text-white {
